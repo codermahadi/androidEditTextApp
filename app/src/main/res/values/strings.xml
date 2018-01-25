@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">EditTextApp</string>
+    <string name="type_any_number1">Type any number 1</string>
+    <string name="type_any_number2">Type any number 2</string>
+    <string name="add">Add</string>
+    <string name="subs">Subs</string>
 </resources>
