@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -38,25 +41,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
-        String num1 = number1.getText().toString();
-        String num2 = number2.getText().toString();
+        try{
+            String num1 = number1.getText().toString();
+            String num2 = number2.getText().toString();
 
-        //Converting into double
+            //Converting into double
 
-        double n1 = Double.parseDouble(num1);
-        double n2 = Double.parseDouble(num2);
+            double n1 = Double.parseDouble(num1);
+            double n2 = Double.parseDouble(num2);
 
-        switch (view.getId()){
+            switch (view.getId()){
 
-            case R.id.add:
-                result = n1+n2;
-                resultShow.setText(n1 + " + " + n2 + " = " + result);
-                break;
+                case R.id.add:
+                    result = n1+n2;
+                    resultShow.setText(n1 + " + " + n2 + " = " + new DecimalFormat("##.##").format(result));
+                    break;
 
-            case R.id.subs:
-                result = n1-n2;
-                resultShow.setText(n1 + " - " + n2 + " = " + result);
-                break;
+                case R.id.subs:
+                    result = n1-n2;
+                    resultShow.setText(n1 + " - " + n2 + " = " + new DecimalFormat("##.##").format(result));
+                    break;
+
+            }
+        }catch(Exception e){
+            Toast.makeText(MainActivity.this, "Please Enter number", Toast.LENGTH_SHORT).show();
 
         }
     }
